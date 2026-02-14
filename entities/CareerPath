@@ -1,0 +1,109 @@
+{
+  "name": "CareerPath",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Name of the career path"
+    },
+    "domain": {
+      "type": "string",
+      "enum": [
+        "Software Development",
+        "Data & Analytics",
+        "Artificial Intelligence & Machine Learning",
+        "Cybersecurity",
+        "Cloud Computing & DevOps",
+        "Networking & Systems",
+        "Web & Digital Design",
+        "Hardware & Embedded Systems",
+        "Quality Assurance & Testing",
+        "IT Support & Enterprise Technology",
+        "Product, Project & Tech Management",
+        "Emerging & Specialized Fields"
+      ],
+      "description": "IT domain this path belongs to"
+    },
+    "subdomain": {
+      "type": "string",
+      "description": "Specific subdomain within the domain"
+    },
+    "description": {
+      "type": "string",
+      "description": "Overview of the career path"
+    },
+    "skills_required": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Key skills needed"
+    },
+    "avg_salary_range": {
+      "type": "string",
+      "description": "Average salary range"
+    },
+    "personality_traits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Personality traits suited for this path"
+    },
+    "learning_resources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Recommended learning resources"
+    },
+    "roadmap": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "phase": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "topics": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "duration": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Learning roadmap with phases and topics"
+    },
+    "icon": {
+      "type": "string",
+      "description": "Icon name for display"
+    },
+    "color": {
+      "type": "string",
+      "description": "Theme color for display"
+    }
+  },
+  "required": [
+    "title",
+    "domain",
+    "description"
+  ]
+}
