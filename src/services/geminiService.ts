@@ -59,7 +59,7 @@ export async function getCareerRecommendation(interests: string[], experience: s
 
 export async function getCuratedCourses(subdomain: string, domain: string) {
   // Using 2.5-flash as it is the most stable/current model for this
-  const model = 'gemini-2.5-flash'; 
+  const model = 'gemini-3-flash-preview'; 
   const prompt = `Recommend the top 5 specific, highly-rated courses or learning resources for someone pursuing a career in ${subdomain} (within the ${domain} domain). 
   Base this on actual reviews and employer preferences across popular platforms like Coursera, Udemy, edX, or YouTube. 
   Provide real-world course titles.`;
