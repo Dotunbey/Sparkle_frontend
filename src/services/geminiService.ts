@@ -58,8 +58,11 @@ export async function getCareerRecommendation(interests: string[], experience: s
 }
 
 export async function getCuratedCourses(subdomain: string, domain: string) {
-  const model = 'gemini-3-flash-preview';
-  const prompt = `Recommend 5 specific, high-quality course titles or key learning modules for someone pursuing a career in ${subdomain} (within the ${domain} domain). Make them sound professional and modern. Return exactly 5 strings in a JSON array.`;
+  // Using 2.5-flash as it is the most stable/current model for this
+  const model = 'gemini-2.5-flash'; 
+  const prompt = `Recommend the top 5 specific, highly-rated courses or learning resources for someone pursuing a career in ${subdomain} (within the ${domain} domain). 
+  Base this on actual reviews and employer preferences across popular platforms like Coursera, Udemy, edX, or YouTube. 
+  Provide real-world course titles.`;
 
   try {
     const response = await ai.models.generateContent({
@@ -69,14 +72,22 @@ export async function getCuratedCourses(subdomain: string, domain: string) {
         responseMimeType: "application/json",
         responseSchema: {
           type: Type.ARRAY,
-          items: { type: Type.STRING }
+          items: { 
+            type: Type.OBJECT,
+            properties: {
+              title: { type: Type.STRING, description: "The exact name of the course or video" },
+              platform: { type: Type.STRING, description: "The platform (e.g., Coursera, Udemy, YouTube)" },
+              description: { type: Type.STRING, description: "A short 1-sentence description of why it's recommended" }
+            },
+            required: ["title", "platform", "description"]
+          }
         }
       }
     });
     return JSON.parse(response.text || '[]');
   } catch (error) {
     console.error("Gemini course error:", error);
-    return ["Introduction to " + subdomain, "Advanced " + subdomain, "Practical Projects", "Industry Standards", "Career Growth in " + subdomain];
+    return [];
   }
 }
 
