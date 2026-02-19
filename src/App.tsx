@@ -250,17 +250,22 @@ const App: React.FC = () => {
                       </div>
                     ))
                   ) : (
-                    dynamicCourses.map((c, i) => (
-                      <div key={i} className="p-5 bg-white/10 rounded-2xl border border-white/20 hover:bg-white/20 transition-all cursor-default group">
-                        <span className="text-[10px] uppercase font-black text-indigo-400 block mb-1 tracking-tighter group-hover:text-indigo-300 transition-colors">
-                          Step 0{i+1}
-                        </span>
-                        <div className="text-base font-medium text-white leading-tight">
-                          {c}
-                        </div>
+                    {dynamicCourses.map((c, i) => (
+                    <div key={i} className="p-5 bg-white/10 rounded-2xl border border-white/20 hover:bg-white/20 transition-all cursor-default group flex flex-col">
+                      <span className="text-[10px] uppercase font-black text-indigo-400 block mb-1 tracking-widest group-hover:text-indigo-300 transition-colors">
+                        {c.platform || `Recommendation 0${i+1}`}
+                      </span>
+                      <div className="text-base font-bold text-white leading-tight mb-2"> 
+                        {c.title || c} 
                       </div>
-                    ))
-                  )}
+                      {c.description && (
+                        <p className="text-sm text-indigo-200/80 leading-snug line-clamp-2">
+                          {c.description}
+                        </p>
+                      )}
+                    </div>
+                  ))}
+
                 </div>
               </div>
               <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 opacity-30"></div>
