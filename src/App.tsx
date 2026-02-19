@@ -12,7 +12,7 @@ const App: React.FC = () => {
   const [selectedSubdomain, setSelectedSubdomain] = useState<Subdomain | null>(null);
   
   // Courses state
-  const [dynamicCourses, setDynamicCourses] = useState<string[]>([]);
+  const [dynamicCourses, setDynamicCourses] = useState<any[]>([]);
   const [isLoadingCourses, setIsLoadingCourses] = useState(false);
 
   // Matchmaker state
