@@ -250,7 +250,7 @@ const App: React.FC = () => {
                       </div>
                     ))
                   ) : (
-                    {dynamicCourses.map((c, i) => (
+                    dynamicCourses.map((c, i) => (
                     <div key={i} className="p-5 bg-white/10 rounded-2xl border border-white/20 hover:bg-white/20 transition-all cursor-default group flex flex-col">
                       <span className="text-[10px] uppercase font-black text-indigo-400 block mb-1 tracking-widest group-hover:text-indigo-300 transition-colors">
                         {c.platform || `Recommendation 0${i+1}`}
@@ -264,7 +264,7 @@ const App: React.FC = () => {
                         </p>
                       )}
                     </div>
-                  ))}
+                  ))
 
                 </div>
               </div>
