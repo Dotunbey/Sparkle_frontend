@@ -23,7 +23,7 @@ const App: React.FC = () => {
   worldNeeds: '', 
   paidFor: '',
   experience: '' 
-});
+  });
   const [recommendation, setRecommendation] = useState<any>(null);
   const [isMatching, setIsMatching] = useState(false);
 
@@ -62,10 +62,10 @@ const App: React.FC = () => {
 
   const handleMatchSubmit = async () => {
     setIsMatching(true);
-    const result = await getCareerRecommendation(matchData.interests, matchData.experience, matchData.goals);
+    const result = await getCareerRecommendation(matchData);
     setRecommendation(result);
     setIsMatching(false);
-    setMatchStep(4);
+    setMatchStep(6);
   };
 
   const toggleInterest = (interest: string) => {
