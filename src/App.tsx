@@ -265,7 +265,7 @@ const App: React.FC = () => {
                       )}
                     </div>
                   ))
-
+                  )}
                 </div>
               </div>
               <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 opacity-30"></div>
