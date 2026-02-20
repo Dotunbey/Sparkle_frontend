@@ -17,7 +17,13 @@ const App: React.FC = () => {
 
   // Matchmaker state
   const [matchStep, setMatchStep] = useState(0);
-  const [matchData, setMatchData] = useState({ interests: [] as string[], experience: '', goals: '' });
+  const [matchData, setMatchData] = useState({ 
+  love: '', 
+  goodAt: '', 
+  worldNeeds: '', 
+  paidFor: '',
+  experience: '' 
+});
   const [recommendation, setRecommendation] = useState<any>(null);
   const [isMatching, setIsMatching] = useState(false);
 
